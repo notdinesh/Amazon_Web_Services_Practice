@@ -1,0 +1,97 @@
+EC2 ---> Elastic compute cloud 
+Actual servers are hypervised and shared to ---> Sharable servers
+
+Servers Types based on Pricing
+   ---> On-demand server <---> hourly-basis charged, temporarly required servers ---> actual price
+   ---> Reserved Server <---> Reserving the servers with respet to time period (Payment --> full, monthly or by parts)
+   ---> Dedicated server <---> Only personal server , not sharable server ---> costlier than the other servers
+   ---> Onspot server <---> like buying in auction ---> giving servers at low cost (sharable) ---> temporarily used ---> used for testing and experiments not for projects
+                      <---> 90 % profit than On - demand servers
+
+ECC-EC2 (Elastic Cloud Compute)
+   ---> Service that will provide resizable compute service in the cloud will provide you service
+
+virtual servers == instances
+
+Latency ---> where the response is slow becuz of the server which is created in another country region
+
+Steps to create instance:
+  ---> Launch instance
+  ---> pre defined configuration
+  ---> to create more than instance to differentiate b/w 2 instance 
+  ---> applications and OS Images(AMI - Amazon Machine Language)
+  ---> instances are, 
+         # Based on price
+             ---> Cost based on the company we work.
+             ---> Cost management plays a major role.
+         # Based on usage
+             ---> general purposes  <---> Small scale applications can be used 
+                                    <---> t-family and m-family(Blog)
+             ---> compute optimized <---> CPU in large range requirement
+                                    <---> processing speed is prior
+                                    <---> c-family
+             ---> memory optimized  <---> memory of application is larger than application size
+                                    <---> d-family,r-family and i-family(Insta,FB)
+             ---> storage optimized <---> Application size is more for storage (application data is more)
+                                    <---> i-family
+             ---> accelerated computing <---> network, storage ,CPU , speed all will be high
+                                        <---> p-family, g-family and h-family. 
+
+Key pair :
+   ---> Reusable
+   ---> Public Key + Private Key
+   Windows OS ---> .pem format (Privacy enhanced mail)
+   Linux OS ---> .ppk format (Putty-private key)
+   Storage Server
+   Network Server
+
+  A Key will be downloaded ---> private key
+  A key Stored in server ---> public key
+
+  Each time you access the instance , both Keys will get paired , if it matches it will allow you to access the instance
+
+  This key pair will make the transfered data more secure.(Makes the data encrypted)
+
+Network settings:
+   firewall ---> tells who and what protocols can access the network
+   TroubleShooting1: (if application is not working)
+               ---> Enable RDP,HTTP/HTTPS
+
+   RDP ---> Remote Desktop protocol
+   HTTP/HTTPS ---> if we are running our application through the browser
+
+Instance State:
+   ---> Start
+   ---> Stop <---> temporarily stop and we can start again
+   ---> Terminate <---> deletes the instance and it cannot be reloaded
+   ---> reboot <---> if instance not working properly we can reboot
+
+to get username & password
+   ---> click connect -> RPD Client
+
+Instances ---> Region-specific ---> can't use in another region
+
+Volumes ---> each volume has max storage of 16 tb storage ---> 16-25 volumes can be added ---> windows
+
+Windows ---> Remote Desktop Connection/Protocol (RDP)
+linux ---> PuTTy ---> Why PuTTy ---> we require SSH (Secure Shell) Environment ---> Windows system but we have linux server 
+      ---> so for transforming the versions/Kernel forms
+
+Application types:
+      ---> Static(Eg:Amazon,Flipkart) --> data wont change --> web server middleware 
+      ---> Dynamic (Eg:Insta,FB) --> data will change based on user --> App server 
+
+MiddleWare:(connects the application to the server)
+      --->Apache,EngineX,IIS(Internet Information Service) --> Static middleware
+
+
+STEPS TO INITIATE SERVER/INSTALL WEB SERVER
+Launch Windows and Linux server
+---> Connect Windows with RDC --> search --> server manager --> click "Add roles and features" -> next>3 --> web server iis --> Next>4 --> install --> After 100% download , close 
+                              --> copy only the raw contents --> Server Library:-(c/inetpub/wwwroot) --> delete the existing files and paste the copied one --> check the server by searching the IP Address in chrome 
+---> Connect Linux with PuTTy ---> Three types of users:
+                                      --> Default user ---> only read permission
+                                      --> Root user ---> read,write,execute permission
+                                      --> Super user --->"sudo -i" ---> you will be changed into root userform root user
+                                                     ---> yum install httpd i -y ---> (yum - updater and modifier) ---> to install apache(httpd) middleware
+

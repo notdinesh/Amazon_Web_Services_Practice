@@ -1,0 +1,71 @@
+IAM ---> Identity Access Management
+    --> used to identify a person and give them access and permission for access
+
+Topics:-
+   Users ---> employee who uses the account(IAM users)
+   Groups ---> 
+   Roles --->
+   Policies --->
+
+root user --> no restriction , only limitations in using the service
+
+IAM --> Security --> organizations will provide them an account
+
+One Organization ---> can have max. 1000 IAM user accounts
+
+IAM accounts are maintained by Security Administrator --> he has the root account
+Employees will have only the IAM Account.
+
+Steps:
+
+Search --> IAM --> copy "Sign-in URL" --> click "create" near the Account alias ---> change the id number to ypur convinient name -->"copy"the L
+
+Sign-in URL for IAM users in this account(Defaultly provided by system):
+https://929160387202.signin.aws.amazon.com/console
+
+Sign-in URL for IAM users in this account(Custom-made)(Account-Alais)
+https://dineshx.signin.aws.amazon.com/console
+
+after creating alias account --> click "user"on left of IAM -->  click "create"user --> add name and click the check box ---> click  "Ï wanna create an IAM user" ---> create a password(whether Auto-generate or custom) ---> password is our wish
+                             --> next --> set permissions --> each & every IAM user's access will be implicitly Denial(Default Denial) --> next --> create user
+
+command-line access --> default by AWS
+IAM user ---> requires username and password
+ 
+Console sign-in URL <--> https://dineshx.signin.aws.amazon.com/console
+Username <--> dinesh
+Password <--> Vikasini23#
+New Password <--> Vikas23#
+
+Implicit Denial --> default denial --> root user doesnt give permission to IAM user , IAm user will not have any permission to access any services in AWS
+Explicit Denial --> 
+
+IAM --> Users --> click "username"--> click "Permissions" --> click "Add Permissions" --> click "Attach Policies Directly" --> search "EC2" --> search "EC2 FullAccess" --> next --> add permission 
+IAM --> Users --> click "username"--> click "Permissions" --> click "Add Permissions" --> click "Attach Policies Directly" --> search "S3" --> search "S3 FullAccess" --> next --> add permission 
+
+IAM --> USer groups --> click "create group" --> 
+
+Policies -->types --> managed policies(Default policies) --> created by Amazon
+                  --> inline policies --> for Specific Requirements --> custom-made policies
+
+Policies --> create Policy --> Services --> search EC2 --> click "switch to deny permissions",if you dont wanna allow the user to perform any actions in instance --> click "Resources" --> then click "Specific instance or all instance" of your choise --> next --> if u need tags, give or go to next --> give a name to the policy and create policy --> users --> click an user available --> permissions --> add permissions 
+         --> search the created policy and add it 
+
+Roles --> create role --> usecase --> EC2 --> next --> search and select "S3full access" --> next --> name it and create --> go to EC2 --> select the lauched instance --> select actions --> Security --> Modify IAM role --> select the created role --> modify the role.
+
+Linux installatn:
+     
+     --> ec2-user
+     --> sudo -i 
+     --> aws s3 ls
+
+IAM --> used to access or connect b/w tow servers
+
+DHCP --> Dynamic host Configure Protocol
+     --> works for IP Address
+     --> IP address are dymanic
+     --> Static IP(Payable)
+ 
+Elastic IP --> Allocate Elactic IP --> Hourly payable .
+           --> getting a Static IP 
+           --> max 5 Elastic IP per Region

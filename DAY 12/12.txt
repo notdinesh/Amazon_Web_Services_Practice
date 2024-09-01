@@ -1,0 +1,16 @@
+Cloud Front (CDN) --> Content Delivery Network
+  --> we cannot host an application
+  --> Appication Enhancement Service 
+  --> For application availability and speeding up the application
+  --> Used for large scale- data transfer applications(Netflix,Prime,etc..)
+  --> An internal AWS Service
+  --> 
+
+--> More than 114 Edges are available around the world
+
+Cloud Front --> Create Cloud Distribution --> origin domain(s3 bucket or s3 endpoint) --> origin path(skip) --> Origin Access(public) --> Enable Origin Shield(no) --> skip all the options --> settings --> Price class(use all edge locations) -->create 
+--> copy Distribution domain name --> PAste in chrome 
+
+
+
+

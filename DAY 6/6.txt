@@ -1,0 +1,94 @@
+
+Http port no --> 80
+Https port no --> 443
+RDP port no --> 3389
+SSH port no --> 22
+MYSQL port no --> 3306
+ 
+Range of Port number : 0 to 65535
+
+EBS --> Elastic Block Storage 
+
+Create instance --> Advanced settings --> user data(Run when the istance is created) --> #! /bin/bash
+                                                                                         yum install httpd -y
+                                                                                         systemctl start httpd
+                                                                                         systemctl enable httpd
+                                                                                         echo "This is sample Application" > /var/www/html/index.html  
+Bash(Shell Scripting)
+
+#! /bin/bash
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+echo "This is sample Application" > /var/www/html/index.html 
+
+
+EC2 --> platform to run something
+    --> Region - specific
+
+IAM --> Global-Specific
+
+S3 --> Eg: Google Drive
+   --> Some data or files need to be stored.
+   --> we can add volumes while creating instance(1 volume size = 16TB, upto 25 Volumes can be added)
+   --> There is no limit of storage (Unlimited amount of data can be storage using S3)
+   --> EC2 has to be paid for usage , if we want only storage
+   --> Anytype of Data is Accepted
+   --> Global - specific(Accessed anywhere over world)
+
+S3 --> bucket + objects
+   --> Default settings(private)
+   --> Can be either public or private
+
+   bucket --> container , where we store objects   
+   Object --> data stored in bucket
+  
+
+S3 --> create bucket --> name (must be Globally Unique) --> Limited storage(5GB) --> Region(Any region) --> Copy settings from existing bucket --> ACL(Access Control List) (Restrict the user to manipulate or not ) 
+   --> private(ACL Disable) / public (ACL Enable) --> private(Enable "Block all public access") / public (Disable"Block all public access") --> Bucket Versioning(Disable) --> Tag(Optional -- additional information) --> Default encryption (Disable) --> create Bucket
+
+click bucket name --> upload --> add file(Specific files) --> Destination(Skip) --> Permissions (Skip) --> Properties(Standard) --> Server-side Encryption(Disable) --> Additional checks(off) --> tags(optional) --> Metadata(data about data -- Additional info about data) 
+                                 add folder(Specific folder) 
+
+
+Default Encryprtion -->
+server - side Encryption -->
+
+
+Storage class:
+        --> to minimize the cost of storage 
+Standard --> Frequently accessed data (more than once a month) with milliseconds access
+Intelligent-Tiering --> Data with changing or unknown access patterns	
+Standard-IA --> Infrequently accessed data (once a month) with milliseconds access	
+One Zone-IA --> Recreatable, infrequently accessed data (once a month) stored in a single Availability Zone with milliseconds access	
+Glacier Instant Retrieval --> Long-lived archive data accessed once a quarter(once or twice in 3 months) with instant retrieval in milliseconds	
+Glacier Flexible Retrieval(formerly Glacier) --> Long-lived archive data accessed once a year(once or twice in 6 months)  with retrieval of minutes to hours	
+Glacier Deep Archive --> Long-lived archive data accessed less than once a year with retrieval of hours		
+
+
+S3 --> Standard(5GB Free)
+Availability --> 99.99% --> Available space in a particular region to store data
+Durability --> 99.999999999% --> Lifetime of stored data in S3
+
+One-zone --> data stored only in one zone
+
+By default , data will be stored in all available zones in a particular region 
+
+URI: (Under S3 service , the path of file in which bucket or in which folder is)
+URL: (web link to reach the file)
+
+Security --> if web is not working
+Object versioning , storage class --> Properties
+
+Object Versioning --> if same objects are to be stored in same bucket.
+
+Bucket --> permissions --> enable bucket versioning --> save --> go back to bucket --> upload the same file --> click show version 
+
+Rollback --> moving backward if something went wrong in recent version.
+         --> this will be possible in object versioning 
+
+Log files --> info about the applications 
+
+Bucket Versioning --> helps to Preserve old files by not replacing with new versions 
+1.Preserved
+2.Restored

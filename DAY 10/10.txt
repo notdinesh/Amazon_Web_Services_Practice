@@ -1,0 +1,79 @@
+176.16.0.0/16 --> VPC Cider
+
+176.16.1.0/24 --> subnet 1
+176.16.2.0/24 --> subnet 2
+176.16.3.0/24 --> subnet 3
+
+1 public subnet -- 2 private subnet
+
+Windows AMI --> t2 micro --> customize VPC --> 1 private and 1 private 
+security --> RDP,HTTP,HTTPS 
+
+Screenshots
+-->VPC
+-->Subnet
+--> VPC Subnets List
+
+NAT gateway --> name --> subnet(choose the private subnet) --> Connectivity type(public) --> Alocate Elastic IP --> create NAT Gateway
+
+Choose two Regions --> Region A(Mumbai) and Region B(Singapore)
+
+Region A --> Peering connection(VPC Peering) --> create peering coonection --> give name --> select the created VPc --> Give a Region (Whether same region or different region) 
+--> if you choose different region , the copy the VPC ID and paste it in the given area --> click "create Peering connection"
+
+Region A --> VPC ID = vpc-0f6527e2fcb84b1fd  |  IPv4 CIDR = 176.16.0.0/16
+Region B --> VPc ID = vpc-04b5ba04d231e014d  |  IPv4 CIDR = 172.31.0.0/16
+
+VPC Route table --> edit Route --> USually we give 000 . instead we have to give another VPC CIDR
+--> after that instead of giving Internet gateway and NAT gateway --> peering connection --> you will see Peering connection ID.
+
+Another VPC --> Edit Route --> USually we give 000 . instead we have to give another VPC CIDR
+--> Select --> Save changes
+
+First VPC --> Request
+Second VPC --> Response
+
+
+Autoscaling types --> Horizontal(Used always) --> no of servers increase or decrease
+                  --> Vertical (we Dont use) --> increasing the size of server --> we should stop the server to resize it. --> misses some requests and actions performed in application.
+
+
+Load balancers Typez
+Classic Load Balancer --> ELB --> befor 2016 --> Elastic load balancer --> cannot handle more than one application
+Application Load Balancer --> can handle more than one application
+Network Load Balancer --> 
+Gateway Load Balancer -->
+
+
+Linux AMI --> SSH,HTTP,HTTPS
+
+
+server 1
+
+#! /bin/bash
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+echo "This is Classic Load balancer - Sample Home Page" > /var/www/html/index.html
+
+server 2
+
+#! /bin/bash
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+mkdir /var/www/html/gmail
+echo "This is Application Load balancer - Sample Home Page for Gmail" > /var/www/html/gmail/index.html
+
+server 3
+
+#! /bin/bash
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+mkdir /var/www/html/photo
+echo "This is Application Load balancer - Sample Home Page for PhotoApp" > /var/www/html/photo/index.html
+
+
+Load Balancer --> Create Load Balancer --> Classic load balancer --> create --> Give an name --> Select default VPC --> dont click internal LB --> Disable VPC config --> next --> Launch wizard 19(Highest value of wizard) 
+--> next >3 --> classic load balancer --> next>2 --> create

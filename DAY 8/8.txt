@@ -1,0 +1,31 @@
+VPC --> Virtual Private Cloud (Private network)
+    --> public cloud --> anyone can access 
+
+VPC 
+Subnet
+Route table
+Internet gateway
+
+default Value --> IPV4 CIDR/ Class Interdomain Routing 
+
+Create vpc --> Enter name(testvpc) --> VPC CIDR(172.16.0.0/16) --> click "create VPC"
+
+Subnets --> create subnet --> add your own vpc id --> give the subnet a name 
+
+instance --> single availability zone --> placement route
+
+encryption ways --> TLS encryption 
+                --> S3 --> server side encryption
+
+EC2 instance profile --> a container for an IAM role that can be used to grant EC2 instance
+
+Default encyption --> enable --> will enforce Encryption automatically to s3 bucket
+
+S3 Access Point --> a way to limit access to a S3 bucket , based on IP Addresses
+
+S3 bucket access restrict --> S3 bucket policy
+IAM access restrict --> IAM Role policy
+
+IAM Role --> Short - term credentials
+IAM USer --> Long - term credentials
+

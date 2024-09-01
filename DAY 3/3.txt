@@ -1,0 +1,24 @@
+Backups ---> Machine configuration backup --> AMI(Amazon machine Image) 
+        ---> Machine data backup --> snapshot --> only the volume is taken as backup
+
+with 1 instance --> we can create 
+linux --> putty --> connection ---> 240
+Linux --> "yum"---> install
+      --> "systemctl start httpd" --> starts httpd
+      --> "systemctl enable httpd" --> automatic start
+      --> ip address --> chrome --> test page --> /var/www/html/
+      --> cd /var/www/html/
+      --> vi index.html --> to open Visual Editor
+      --> press "i" for inserting
+      --> Esc --> shift + colon --> wq(save and quit)
+  
+Steps to create many servers/AMI: (using AMI) --> Configuration copy(like an -ve copy of an image)   
+  --> actions--> images and templates --> create image 
+ 
+To add the backup --> lauch instance --> My AMI --> owned by me --> avail keypad --> launch the instance
+
+IF U MISS TO INSERT THE PROTOCOL IN INSTANCE:
+Select instance --> security --> click "Security groups" links --> edit --> add the missed protocols
+  
+
+

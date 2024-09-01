@@ -1,0 +1,57 @@
+AutoScaling
+===========
+
+Majorly used services in AWS 
+
+EC2 --> Server maintainance (instance,AMI,Snapshots,Keypairs,Autoscaling,LoadBalancing)
+    --> Snapshots --> backups
+    --> virtual servers --> instances
+    --> Autoscaling --> to scaleup or scaledown the number of servers.
+
+S3
+VPC
+RDS
+R53
+IAM
+
+--> If we have more number of users , the application will use more than one user because if the request
+    from user crosses the capacity of the server, performance of the server gets down , which inturn downs the application
+    alos leads to server crash
+
+IOP --> Input Output Persecond
+
+there is an entity called LOAD BALANCER --> transfer the request to server which is free
+
+Load Balancer --> distributes application network traffic among the servers equally.
+=============
+
+--> Initially during Application release,the number of users are predicted and servers were alloted
+--> IF number of users incresed overnight, we can manipulate the servers using AUTOSCALING
+
+AUTOSCALING --> increase(scaleup) or decrease(scaleup) the number servers based on number of users.
+=========== --> gradually increase or decrease no of servers depending on server usage.
+
+Autoscaling --> Launch Configuration --> Explain to autoscaling with our required configuration
+            --> Auto-scaling Group --> setting min and max servers
+ 
+FAQ
+===
+Autoscaling --> What? --> manipulates the number of servers based on usage of an application .
+            --> Why? --> prevents applicaion from slowing down, even crashing.  
+            --> Example : Popcorn counters in theaters
+            --> Part of EC2
+
+===========
+STEPS
+EC2 --> Auto Scaling --> Launch Configiration --> Launch Configiration --> name(Own choice) --> AMI(Instances --> Launch Instance --> click linux --> copy the AMI ID) --> Add AMI 
+    --> taking our AMI , becus Our config will be same for the instances --> Istance type(t2.micro) --> Skip additional settings --> rules(SSH,HTTP,HTTPS --> IP(Anywhere)) --> keypair(Existing(linux)) --> lauch Autoscaling
+
+Auto Scaling group --> Create AutoScaling group --> NAme(own choise) --> Give "Switch to Launch Configuratn "
+
+Launch Config --> Can't edit --> Read -only
+Lauch Template -- Can edit --> select the created config in drop down --> click next --> Network(Available zone -->select min. 3) --> next --> LoadBalancer(click "No load balancer") --> next --> Group size(Desired(2),minimum(1),maximum(5)) --> 
+               -->Scaling policies(none) --> next > 2(if notificatn needed give or skip) --> next --> Create Auto scaling group
+
+Desired capacity --> servers for instances immediately use
+Min capacity --> min servers req.
+MAx capacity --> max servers req.

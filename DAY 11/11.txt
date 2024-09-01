@@ -1,0 +1,44 @@
+Application load balancer --> two things --> Network traffic distribution
+=========================
+                                         --> health check
+  --> When we have more than one appication , it will be difficult to do health check as well as network traffic distribution.
+
+Load balancer is split into two . they are,
+ --> Load Balancer --> forward network traffic.
+ --> Target group --> for each set of servers.We need target group . 
+
+     Depending upon the application we need to create target group 
+
+STEPS
+=====
+
+Load balancer --> targer groups --> create --> instance --> give a name --> Protocol(Skip) --> VPC (Default) --> health Check(type"/gmail/index.html") 
+--> next --> select the req. server(server2) --> then click "include as pending below" --> click "create target group".
+
+Loadbalancer --> create load balancer --> give name --> scheme(Internet-facing) --> IPV4 --> VPC(DEfault) --> MApping(Select atleast 3 --> depending upon region)
+--> Security(Remove Default & choose highest wizard) --> Listeners and routing (select any one default group) --> create load balancer
+
+Loadbalancer --> Listeners --> HTTP:80 --> Rules --> Manage rule --> add rule --> insert rule --> add condition --> path --> put "/gmail*" in the below box --> add action --> forward to --> select the target group --> create --> then go back and click the load balancer
+--> copy the DNS name and paste it in chrome --> (eg :LoadBalancer-580018117.ap-northeast-1.elb.amazonaws.com/gmail) or (LoadBalancer-580018117.ap-northeast-1.elb.amazonaws.com/photo).      
+
+
+EBS
+===
+VOLUMES
+=======
+  --> From server we can attach or detach from server
+
+three ways  
+  --> EXisting volume modification (Modifying volume)
+  --> Adding a new volme (Attaching volume)
+  --> Deleting the volume (Detaching volume)
+
+STEPS
+=====
+EBS --> Volume --> create volume --> type(General Purpose) --> size(100 GB) --> available zone should be equal to the zone which we work --> create
+--> select volume instance --> cilck 'Actions" --> then add volume to the instance
+
+We cannot reduce the volume of the instance --> but we can stop the instance , dete the existing one, creating another volume and adding it
+
+
+

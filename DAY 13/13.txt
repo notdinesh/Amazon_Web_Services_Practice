@@ -1,0 +1,11 @@
+---> docker pull httpd(to pull/download  images from docker hub)
+---> docker images (to list all the images which are uploaded )
+---> docker run -d --name<container name>(optional) -p(optional)(To create a container)
+--> docker run -d 
+
+apache runs on port no 80
+
+docker run -d --name cont1 -p 8080:80 httpd
+docker run -d --name cont2 -p 9090:80 httpd
+
+docker exec -it <contid> bash

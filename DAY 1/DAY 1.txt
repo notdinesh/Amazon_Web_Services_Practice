@@ -1,0 +1,56 @@
+Cloud computing ---> on demand in server providing platform
+                ---> AWS GCP Azure
+                ---> can be used using remote
+
+DataServers ---> maintains all the servers connected with internet
+            ---> can easily allocate server storage
+
+Virtualization ---> sharing the server(Hypervizers)
+               ---> client using a part of server
+
+infra ---> on-premises server+ cloud server ---> structure,storage,data
+ 
+Server ---> machine used to store data
+
+Hypervizer ---> one server can be converted into more than one server
+           ---> used as chunks
+           ---> acts as middleware
+
+
+Cloud Services---> Platform as service --->Os is maintained by server --> Applicatn and data 
+                   Infrastructure as service ---> Cost effective ---> Virtualization,server,storage,Network
+                   Software as service ---> software is maintained ---> All maintained by us
+
+Low Level  ---> Planning team ---> Implementataion team ---> Operation team ---> Deploy 
+
+AWS Performance ---> it has 217 services
+                Example:
+                ---> compute 
+                ---> storage
+                ---> migration
+
+Advantages of AWS: 
+     
+     ---> Easy to use
+     ---> Flexible
+     ---> Cost-effective
+     ---> Reliable
+     ---> Scalable and High-performance    
+
+AWS ---> first Cloud service 
+    ---> started in 2006  
+
+Class Time Table:
+
+DAY 1 ---> Cloud Intro
+DAy 2 ---> EC2 (Server)
+Day 3 ---> S3 (Storage)
+DAY 4 ---> IAM (Security)
+DAY 5 ---> AutoScaling (Server)
+DAY 6 ---> VPC (Network)
+
+
+Cloud computing ---> server providing platform
+                ---> AWS literally has about 217 services
+                ---> each region has minimum 3 availability zones
+                ---> AWS was the first to provide cloud services in the year 2006
